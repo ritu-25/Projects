@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Story Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Story Generator</h1>
+            <p class="subtitle">Craft your unique narratives with the power of AI</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <h2>Create Your Story</h2>
+                <textarea id="userPrompt" placeholder="Enter your story prompt, keywords, or a basic idea..."></textarea>
+
+                <div class="options-grid">
+                    <div class="option-group">
+                        <label for="genre">Genre:</label>
+                        <select id="genre">
+                            <option value="fantasy">Fantasy</option>
+                            <option value="sci-fi">Science Fiction</option>
+                            <option value="mystery">Mystery</option>
+                            <option value="romance">Romance</option>
+                            <option value="horror">Horror</option>
+                            <option value="adventure">Adventure</option>
+                            <option value="historical">Historical Fiction</option>
+                            <option value="comedy">Comedy</option>
+                        </select>
+                    </div>
+
+                    <div class="option-group">
+                        <label for="tone">Tone:</label>
+                        <select id="tone">
+                            <option value="neutral">Neutral</option>
+                            <option value="funny">Funny</option>
+                            <option value="serious">Serious</option>
+                            <option value="suspenseful">Suspenseful</option>
+                            <option value="whimsical">Whimsical</option>
+                            <option value="dark">Dark</option>
+                        </select>
+                    </div>
+
+                    <div class="option-group">
+                        <label for="style">Style:</label>
+                        <select id="style">
+                            <option value="narrative">Narrative</option>
+                            <option value="descriptive">Descriptive</option>
+                            <option value="poetic">Poetic</option>
+                            <option value="first-person">First-Person POV</option>
+                            <option value="third-person">Third-Person POV</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button id="generateBtn">Generate Story</button>
+            </div>
+
+            <div class="story-output-section">
+                <h2>Generated Story</h2>
+                <div id="storyOutput" class="story-output-content" aria-live="polite">
+                    <p>Your generated story will appear here...</p>
+                </div>
+                <div id="loadingIndicator" class="loading-indicator" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Generating your masterpiece...</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 AI Story Generator. Powered by Google Gemini.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
