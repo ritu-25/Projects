@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ritu Saini - Portfolio</title>
+    <!-- Tailwind CSS CDN for easy setup -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <!-- Google Fonts for a modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg-color: #1A1A2E;
+        --text-color: #E8EAF6;
+        --primary-color: #00F0FF; /* Neon Blue */
+        --secondary-color: #A259FF; /* Neon Purple */
+        --card-bg: #21253A;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+      }
+      /* Custom CSS for the typing animation cursor */
+      .cursor {
+        animation: blink 0.7s infinite;
+      }
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+      }
+      /* Custom styles for the chatbot modal */
+      .modal-bg {
+        background-color: rgba(26, 26, 46, 0.9);
+        backdrop-filter: blur(5px);
+      }
+      .chat-message-user {
+        border-bottom-right-radius: 0;
+      }
+      .chat-message-bot {
+        border-bottom-left-radius: 0;
+      }
+      /* Glowing border on hover */
+      .glowing-card:hover {
+        box-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--secondary-color);
+      }
+      /* Glowing button effect */
+      .glowing-btn {
+        box-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--secondary-color);
+        transition: box-shadow 0.3s ease;
+      }
+      .glowing-btn:hover {
+        box-shadow: 0 0 15px var(--primary-color), 0 0 30px var(--secondary-color);
+      }
+    </style>
+  </head>
+  <body class="bg-[#1A1A2E] text-gray-100">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="bg-[#1A1A2E] sticky top-0 z-50 shadow-lg transition-all duration-300">
+      <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <a href="#home" class="text-xl font-bold text-[#00F0FF] transition-colors duration-300 hover:text-white">
+          Ritu Saini
+        </a>
+        <div class="hidden md:flex space-x-8">
+          <a href="#home" class="text-gray-300 hover:text-[#00F0FF] font-medium transition-colors duration-300">Home</a>
+          <a href="#about" class="text-gray-300 hover:text-[#00F0FF] font-medium transition-colors duration-300">About</a>
+          <a href="#skills" class="text-gray-300 hover:text-[#00F0FF] font-medium transition-colors duration-300">Skills</a>
+          <a href="#projects" class="text-gray-300 hover:text-[#00F0FF] font-medium transition-colors duration-300">Projects</a>
+          <a href="#experience" class="text-gray-300 hover:text-[#00F0FF] font-medium transition-colors duration-300">Experience</a>
+          <a href="#contact" class="text-gray-300 hover:text-[#00F0FF] font-medium transition-colors duration-300">Contact</a>
+        </div>
+        <!-- Mobile menu button -->
+        <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-[#00F0FF] transition-colors duration-300">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="hidden md:hidden bg-[#1A1A2E] shadow-lg">
+        <div class="flex flex-col items-center py-4 space-y-4">
+          <a href="#home" class="text-gray-300 hover:text-[#00F0FF] font-medium transition-colors duration-300 w-full text-center py-2">Home</a>
+          <a href="#about" class="text-gray-300 hover:text-[#00F0FF] font-medium transition-colors duration-300 w-full text-center py-2">About</a>
+          <a href="#skills" class="text-gray-300 hover:text-[#00F0FF] font-medium transition-colors duration-300 w-full text-center py-2">Skills</a>
+          <a href="#projects" class="text-gray-300 hover:text-[#00F0FF] font-medium transition-colors duration-300 w-full text-center py-2">Projects</a>
+          <a href="#experience" class="text-gray-300 hover:text-[#00F0FF] font-medium transition-colors duration-300 w-full text-center py-2">Experience</a>
+          <a href="#contact" class="text-gray-300 hover:text-[#00F0FF] font-medium transition-colors duration-300 w-full text-center py-2">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container mx-auto px-4">
+      <!-- Home Section -->
+      <section id="home" class="py-20 flex flex-col md:flex-row items-center justify-center min-h-screen -mt-[88px] text-center md:text-left">
+        <div class="max-w-xl mx-auto md:mx-0">
+          <p class="text-xl text-gray-400 mb-2 animate-fade-in-down">Hello, I'm</p>
+          <h1 class="text-5xl md:text-6xl font-extrabold text-gray-100 leading-tight mb-4">
+            <span id="typed-text"></span><span class="cursor text-[#00F0FF]">|</span>
+          </h1>
+          <h2 class="text-2xl md:text-3xl font-semibold text-gray-300 mb-6 animate-fade-in-up">
+            AI & Data Science Engineer | Machine Learning Specialist | Full Stack Developer
+          </h2>
+          <p class="text-lg text-gray-400 mb-8 animate-fade-in-up">
+            A passionate full-stack developer with a focus on creating innovative web applications and AI-powered solutions.
+          </p>
+          <a href="#contact" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 transition-colors duration-300 shadow-lg transform hover:scale-105 glowing-btn">
+            Get in Touch
+          </a>
+        </div>
+        <div class="mt-12 md:mt-0 md:ml-20">
+          <!-- User's photo from the provided file -->
+          <img src="ritu.jpg" alt="Ritu Saini" class="rounded-full shadow-2xl animate-float-img w-64 h-64 object-cover border-4 border-[#A259FF] transform transition-transform duration-500 hover:scale-105">
+        </div>
+      </section>
+
+      <!-- About Me Section -->
+      <section id="about" class="py-20 animate-fade-in-down-scroll">
+        <h2 class="text-4xl font-bold text-center mb-12 text-[#00F0FF]">About Me</h2>
+        <div class="bg-[#21253A] p-8 md:p-12 rounded-2xl shadow-xl max-w-4xl mx-auto transform transition-all duration-500 hover:scale-105 glowing-card">
+          <p class="text-lg text-gray-300 leading-relaxed text-center">
+            I am a B.Tech student specializing in Artificial Intelligence and Data Science with hands-on experience in developing AI models, data analytics solutions, and full-stack applications. I have a proven track record of delivering over three innovative projects using Python, Django, and cloud platforms. My expertise includes machine learning, deep learning, and data visualization with Power BI. I have strong leadership abilities and experience managing cross-functional teams to deliver solutions that improve decision-making processes.
+          </p>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="py-20 animate-fade-in-down-scroll">
+        <h2 class="text-4xl font-bold text-center mb-12 text-[#00F0FF]">My Skills</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
+          <!-- Programming Languages -->
+          <div class="flex flex-col items-center bg-[#21253A] p-6 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl glowing-card">
+            <i class="fab fa-python text-5xl text-[#00F0FF] mb-4"></i>
+            <span class="text-xl font-semibold text-gray-200">Python</span>
+          </div>
+          <div class="flex flex-col items-center bg-[#21253A] p-6 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl glowing-card">
+            <i class="fab fa-js text-5xl text-[#00F0FF] mb-4"></i>
+            <span class="text-xl font-semibold text-gray-200">JavaScript</span>
+          </div>
+          <div class="flex flex-col items-center bg-[#21253A] p-6 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl glowing-card">
+            <i class="fas fa-code text-5xl text-[#00F0FF] mb-4"></i>
+            <span class="text-xl font-semibold text-gray-200">C++</span>
+          </div>
+          <!-- ML & AI -->
+          <div class="flex flex-col items-center bg-[#21253A] p-6 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl glowing-card">
+            <i class="fas fa-brain text-5xl text-[#00F0FF] mb-4"></i>
+            <span class="text-xl font-semibold text-gray-200">Machine Learning</span>
+          </div>
+          <div class="flex flex-col items-center bg-[#21253A] p-6 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl glowing-card">
+            <i class="fas fa-comment-dots text-5xl text-[#00F0FF] mb-4"></i>
+            <span class="text-xl font-semibold text-gray-200">NLP & LLM</span>
+          </div>
+          <!-- Frameworks & Libraries -->
+          <div class="flex flex-col items-center bg-[#21253A] p-6 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl glowing-card">
+            <i class="fas fa-leaf text-5xl text-[#00F0FF] mb-4"></i>
+            <span class="text-xl font-semibold text-gray-200">Django & Flask</span>
+          </div>
+          <div class="flex flex-col items-center bg-[#21253A] p-6 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl glowing-card">
+            <i class="fab fa-react text-5xl text-[#00F0FF] mb-4"></i>
+            <span class="text-xl font-semibold text-gray-200">React</span>
+          </div>
+          <div class="flex flex-col items-center bg-[#21253A] p-6 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl glowing-card">
+            <i class="fab fa-bootstrap text-5xl text-[#00F0FF] mb-4"></i>
+            <span class="text-xl font-semibold text-gray-200">Bootstrap</span>
+          </div>
+          <!-- Databases & Cloud -->
+          <div class="flex flex-col items-center bg-[#21253A] p-6 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl glowing-card">
+            <i class="fas fa-database text-5xl text-[#00F0FF] mb-4"></i>
+            <span class="text-xl font-semibold text-gray-200">SQL & Databases</span>
+          </div>
+          <div class="flex flex-col items-center bg-[#21253A] p-6 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl glowing-card">
+            <i class="fas fa-cloud text-5xl text-[#00F0FF] mb-4"></i>
+            <span class="text-xl font-semibold text-gray-200">GCP & AWS</span>
+          </div>
+        </div>
+        <!-- AI-powered skill summary -->
+        <div class="flex justify-center mt-8">
+          <button id="summarize-skills-btn" class="bg-[#21253A] text-[#00F0FF] hover:bg-[#2c314a] transition-colors duration-300 font-semibold px-6 py-3 rounded-lg shadow-md flex items-center glowing-btn">
+            <i class="fas fa-magic mr-2"></i> ✨ Summarize My Skills
+          </button>
+        </div>
+        <div id="skills-summary-container" class="mt-8">
+          <div id="skills-summary-text" class="hidden bg-[#21253A] p-8 rounded-xl shadow-lg max-w-4xl mx-auto text-center text-gray-300 glowing-card"></div>
+          <div id="skills-loading" class="hidden text-center text-gray-500 mt-4">
+            <i class="fas fa-spinner fa-spin mr-2"></i> Generating summary...
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="py-20 animate-fade-in-down-scroll">
+        <h2 class="text-4xl font-bold text-center mb-12 text-[#00F0FF]">Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Project Card 1: Email Classifier System -->
+          <div class="project-card bg-[#21253A] rounded-xl shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl glowing-card">
+            <img class="w-full h-48 object-cover" src="https://placehold.co/600x400/1A1A2E/E8EAF6?text=Email+Classifier" alt="Email Classifier System">
+            <div class="p-6">
+              <h3 class="text-2xl font-semibold text-gray-200 mb-2">Email Classifier System</h3>
+              <p class="project-description text-gray-300 mb-4">
+                Designed and implemented an AI-based Email Classification System using Python, Scikit-Learn, and Naive Bayes. The system features a real-time web interface built with Flask for user-friendly interaction.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="bg-[#00F0FF] text-gray-900 text-xs font-medium px-2.5 py-0.5 rounded-full">Python</span>
+                <span class="bg-[#00F0FF] text-gray-900 text-xs font-medium px-2.5 py-0.5 rounded-full">Scikit-Learn</span>
+                <span class="bg-[#00F0FF] text-gray-900 text-xs font-medium px-2.5 py-0.5 rounded-full">Flask</span>
+              </div>
+              <div class="flex space-x-4">
+                <a href="#" class="inline-flex items-center text-sm font-medium text-[#00F0FF] hover:text-white transition-colors duration-300">
+                  <i class="fab fa-github mr-2"></i> GitHub
+                </a>
+                <a href="#" class="inline-flex items-center text-sm font-medium text-gray-300 hover:text-white transition-colors duration-300">
+                  <i class="fas fa-external-link-alt mr-2"></i> Live Demo
+                </a>
+              </div>
+              <button class="generate-description-btn w-full mt-4 bg-[#21253A] text-[#A259FF] hover:bg-[#2c314a] transition-colors duration-300 font-medium px-4 py-2 rounded-lg text-sm flex items-center justify-center glowing-btn">
+                <i class="fas fa-sparkles mr-2"></i> ✨ Generate New Description
+              </button>
+            </div>
+          </div>
+          <!-- Project Card 2: Credit Card Customer & Transaction Analyzer -->
+          <div class="project-card bg-[#21253A] rounded-xl shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl glowing-card">
+            <img class="w-full h-48 object-cover" src="https://placehold.co/600x400/1A1A2E/E8EAF6?text=Credit+Card+Analyzer" alt="Credit Card Analyzer">
+            <div class="p-6">
+              <h3 class="text-2xl font-semibold text-gray-200 mb-2">Credit Card Customer & Transaction Analyzer</h3>
+              <p class="project-description text-gray-300 mb-4">
+                Built a Power BI dashboard to analyze over 50,000 credit card transactions. Developed DAX queries to gain insights into spending patterns and customer behavior, enabling targeted analysis.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="bg-[#00F0FF] text-gray-900 text-xs font-medium px-2.5 py-0.5 rounded-full">Power BI</span>
+                <span class="bg-[#00F0FF] text-gray-900 text-xs font-medium px-2.5 py-0.5 rounded-full">DAX</span>
+                <span class="bg-[#00F0FF] text-gray-900 text-xs font-medium px-2.5 py-0.5 rounded-full">Data Analysis</span>
+              </div>
+              <div class="flex space-x-4">
+                <a href="#" class="inline-flex items-center text-sm font-medium text-[#00F0FF] hover:text-white transition-colors duration-300">
+                  <i class="fab fa-github mr-2"></i> GitHub
+                </a>
+                <a href="#" class="inline-flex items-center text-sm font-medium text-gray-300 hover:text-white transition-colors duration-300">
+                  <i class="fas fa-external-link-alt mr-2"></i> Live Demo
+                </a>
+              </div>
+              <button class="generate-description-btn w-full mt-4 bg-[#21253A] text-[#A259FF] hover:bg-[#2c314a] transition-colors duration-300 font-medium px-4 py-2 rounded-lg text-sm flex items-center justify-center glowing-btn">
+                <i class="fas fa-sparkles mr-2"></i> ✨ Generate New Description
+              </button>
+            </div>
+          </div>
+          <!-- Project Card 3: Farmers & Employees Management System -->
+          <div class="project-card bg-[#21253A] rounded-xl shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl glowing-card">
+            <img class="w-full h-48 object-cover" src="https://placehold.co/600x400/1A1A2E/E8EAF6?text=Management+System" alt="Management System">
+            <div class="p-6">
+              <h3 class="text-2xl font-semibold text-gray-200 mb-2">Farmers & Employees Management System</h3>
+              <p class="project-description text-gray-300 mb-4">
+                Developed a role-based access control system for over 200 users using Python, Django, and MVT architecture. Included a task management system to track employee productivity and enhance operational control.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="bg-[#00F0FF] text-gray-900 text-xs font-medium px-2.5 py-0.5 rounded-full">Python</span>
+                <span class="bg-[#00F0FF] text-gray-900 text-xs font-medium px-2.5 py-0.5 rounded-full">Django</span>
+                <span class="bg-[#00F0FF] text-gray-900 text-xs font-medium px-2.5 py-0.5 rounded-full">JavaScript</span>
+              </div>
+              <div class="flex space-x-4">
+                <a href="#" class="inline-flex items-center text-sm font-medium text-[#00F0FF] hover:text-white transition-colors duration-300">
+                  <i class="fab fa-github mr-2"></i> GitHub
+                </a>
+                <a href="#" class="inline-flex items-center text-sm font-medium text-gray-300 hover:text-white transition-colors duration-300">
+                  <i class="fas fa-external-link-alt mr-2"></i> Live Demo
+                </a>
+              </div>
+              <button class="generate-description-btn w-full mt-4 bg-[#21253A] text-[#A259FF] hover:bg-[#2c314a] transition-colors duration-300 font-medium px-4 py-2 rounded-lg text-sm flex items-center justify-center glowing-btn">
+                <i class="fas fa-sparkles mr-2"></i> ✨ Generate New Description
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience" class="py-20 animate-fade-in-down-scroll">
+        <h2 class="text-4xl font-bold text-center mb-12 text-[#00F0FF]">Experience</h2>
+        <div class="space-y-8 max-w-4xl mx-auto">
+          <!-- Experience Item 1: Full Stack Python Django Web Developer Intern -->
+          <div class="bg-[#21253A] p-6 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl glowing-card">
+            <div class="flex justify-between items-center mb-2">
+              <h3 class="text-2xl font-semibold text-gray-200">Full Stack Python Django Web Developer Intern</h3>
+              <span class="text-gray-400">Mar 2025-Jul-2025</span>
+            </div>
+            <p class="text-lg text-gray-300 mb-2">IBV Technologies</p>
+            <p class="text-gray-400">
+              Developed full-stack web applications using Django, HTML, CSS, JavaScript, and Bootstrap for responsive UI design. Built APIs with Django Framework, implemented PostgreSQL/MySQL models, and integrated frontend-backend using Git/GitHub.
+            </p>
+          </div>
+          <!-- Experience Item 2: Data Analytics Intern -->
+          <div class="bg-[#21253A] p-6 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl glowing-card">
+            <div class="flex justify-between items-center mb-2">
+              <h3 class="text-2xl font-semibold text-gray-200">Data Analytics Intern</h3>
+              <span class="text-gray-400">Jul-2024-Sep-2025</span>
+            </div>
+            <p class="text-lg text-gray-300 mb-2">DataPlay</p>
+            <p class="text-gray-400">
+              Analyzed records using Power BI and developed 5+ real-time dashboards, reducing issue resolution time by 40%. Generated actionable insights and automated alerts for stakeholders, improving dashboard loading speed by 25%.
+            </p>
+          </div>
+          <!-- Experience Item 3: Data Science Trainee -->
+          <div class="bg-[#21253A] p-6 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl glowing-card">
+            <div class="flex justify-between items-center mb-2">
+              <h3 class="text-2xl font-semibold text-gray-200">Data Science Trainee</h3>
+              <span class="text-gray-400">May-2024-Jul-2024</span>
+            </div>
+            <p class="text-lg text-gray-300 mb-2">Celebal Technologies</p>
+            <p class="text-gray-400">
+              Executed data preprocessing on 10,000+ records and implemented 4+ ML algorithms, achieving over 90% accuracy. Created 10+ data visualizations and reports, collaborating with teams to deliver 2 real time projects on time.
+            </p>
+          </div>
+          <!-- Experience Item 4: Python Django Full Stack Development Intern -->
+          <div class="bg-[#21253A] p-6 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl glowing-card">
+            <div class="flex justify-between items-center mb-2">
+              <h3 class="text-2xl font-semibold text-gray-200">Python Django Full Stack Development Intern</h3>
+              <span class="text-gray-400">Mar-2023-Sep-2023</span>
+            </div>
+            <p class="text-lg text-gray-300 mb-2">Regex Software Services</p>
+            <p class="text-gray-400">
+              Developed 3+ full-stack web applications using Django and optimized 8+ database models, improving performance by 30%. Implemented authentication systems and role-based access control for 500+ users using Django Framework.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="py-20 animate-fade-in-down-scroll">
+        <h2 class="text-4xl font-bold text-center mb-12 text-[#00F0FF]">Contact</h2>
+        <div class="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-8 max-w-2xl mx-auto">
+          <a href="mailto:sainiritu132@gmail.com" class="inline-flex items-center justify-center w-full md:w-auto px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 transition-colors duration-300 shadow-lg transform hover:scale-105 glowing-btn">
+            <i class="fas fa-envelope mr-2"></i> Email Me
+          </a>
+          <a href="https://www.linkedin.com/in/ritu-saini-790708226/" target="_blank" class="inline-flex items-center justify-center w-full md:w-auto px-8 py-3 border border-[#A259FF] text-base font-medium rounded-md text-[#A259FF] bg-[#21253A] hover:bg-[#2c314a] transition-colors duration-300 shadow-lg transform hover:scale-105 glowing-btn">
+            <i class="fab fa-linkedin mr-2"></i> LinkedIn
+          </a>
+          <a href="https://github.com/ritu-25" target="_blank" class="inline-flex items-center justify-center w-full md:w-auto px-8 py-3 border border-gray-600 text-base font-medium rounded-md text-gray-300 bg-[#21253A] hover:bg-[#2c314a] transition-colors duration-300 shadow-lg transform hover:scale-105 glowing-btn">
+            <i class="fab fa-github mr-2"></i> GitHub
+          </a>
+        </div>
+      </section>
+
+    </main>
+    <!-- Professional Footer -->
+    <footer class="bg-[#10101A] py-12">
+      <div class="container mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+        <!-- Brand and Tagline -->
+        <div>
+          <h3 class="text-2xl font-bold text-[#00F0FF] mb-2">Ritu Saini</h3>
+          <p class="text-gray-400">AI-ML Enthusiast | Python Django Developer</p>
+          <div class="flex items-center justify-center md:justify-start mt-4 text-gray-400">
+            <i class="fas fa-map-marker-alt mr-2 text-sm text-[#A259FF]"></i>
+            <p>Jaipur, Rajasthan, India</p>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-xl font-semibold text-gray-100 mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="#home" class="text-gray-400 hover:text-[#00F0FF] transition-colors duration-300">Home</a></li>
+            <li><a href="#about" class="text-gray-400 hover:text-[#00F0FF] transition-colors duration-300">About</a></li>
+            <li><a href="#projects" class="text-gray-400 hover:text-[#00F0FF] transition-colors duration-300">Projects</a></li>
+            <li><a href="#contact" class="text-gray-400 hover:text-[#00F0FF] transition-colors duration-300">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Social and Contact -->
+        <div>
+          <h4 class="text-xl font-semibold text-gray-100 mb-4">Connect</h4>
+          <div class="flex justify-center md:justify-start space-x-6 mb-4">
+            <a href="https://github.com/ritu-25" target="_blank" aria-label="GitHub" class="text-gray-400 hover:text-[#00F0FF] transition-colors duration-300">
+              <i class="fab fa-github text-2xl"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/ritu-saini-790708226/" target="_blank" aria-label="LinkedIn" class="text-gray-400 hover:text-[#00F0FF] transition-colors duration-300">
+              <i class="fab fa-linkedin text-2xl"></i>
+            </a>
+            <a href="mailto:sainiritu132@gmail.com" target="_blank" aria-label="Email" class="text-gray-400 hover:text-[#00F0FF] transition-colors duration-300">
+              <i class="fas fa-envelope text-2xl"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter/X" class="text-gray-400 hover:text-[#00F0FF] transition-colors duration-300">
+              <i class="fab fa-twitter text-2xl"></i>
+            </a>
+            <a href="https://instagram.com/arush.codes" target="_blank" aria-label="Instagram" class="text-gray-400 hover:text-[#00F0FF] transition-colors duration-300">
+              <i class="fab fa-instagram text-2xl"></i>
+            </a>
+          </div>
+          <a href="mailto:sainiritu132@gmail.com" class="inline-flex items-center justify-center px-6 py-2 border border-[#A259FF] text-base font-medium rounded-md text-[#A259FF] bg-transparent hover:bg-[#2c314a] transition-colors duration-300 glowing-btn">
+            <i class="fas fa-paper-plane mr-2"></i> Get in Touch
+          </a>
+        </div>
+      </div>
+      <div class="mt-8 pt-6 border-t border-gray-700 text-center text-gray-500">
+        <p>&copy; 2024 Ritu Saini. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Floating Chatbot Button -->
+    <button id="chatbot-btn" class="fixed bottom-6 right-6 p-4 rounded-full shadow-2xl bg-[#A259FF] text-white hover:bg-[#B16EF5] transition-transform duration-300 transform hover:scale-110 focus:outline-none focus:ring-4 focus:ring-[#A259FF] glowing-btn">
+      <i class="fas fa-comment-dots text-2xl"></i>
+    </button>
+
+    <!-- Chatbot Modal -->
+    <div id="chatbot-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-bg">
+      <div class="bg-[#21253A] rounded-xl shadow-2xl w-full max-w-md h-[80vh] flex flex-col transform transition-all duration-300 scale-95 opacity-0" id="chatbot-content">
+        <!-- Modal Header -->
+        <div class="bg-[#A259FF] text-white p-4 rounded-t-xl flex justify-between items-center">
+          <h2 class="text-lg font-semibold">AI Assistant</h2>
+          <button id="close-chatbot-btn" class="text-white hover:text-gray-200 transition-colors duration-300">
+            <i class="fas fa-times text-xl"></i>
+          </button>
+        </div>
+        <!-- Chat history area -->
+        <div id="chat-history" class="flex-1 p-4 overflow-y-auto space-y-4">
+          <!-- Initial bot message -->
+          <div class="flex items-start">
+            <div class="bg-gray-700 text-gray-100 p-3 rounded-lg chat-message-bot max-w-[80%]">
+              <p>Hi there! I am an AI assistant. I can answer questions about this portfolio. How can I help you?</p>
+            </div>
+          </div>
+        </div>
+        <!-- Chat input form -->
+        <form id="chat-form" class="p-4 border-t border-gray-700 flex items-center space-x-2">
+          <input type="text" id="chat-input" placeholder="Ask me something..." class="flex-1 p-3 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A259FF] bg-gray-800 text-white transition-all duration-300" />
+          <button type="submit" class="bg-[#A259FF] text-white p-3 rounded-lg hover:bg-[#B16EF5] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#A259FF]">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+        <!-- Loading indicator -->
+        <div id="loading-indicator" class="hidden text-center text-gray-500 p-2">
+          <i class="fas fa-spinner fa-spin mr-2"></i> Thinking...
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript for interactivity -->
+    <script>
+      // Smooth scrolling for navigation
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            window.scrollTo({
+              top: target.offsetTop,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
+      // Typing Animation for Hero Section
+      document.addEventListener("DOMContentLoaded", function () {
+        const text = "Ritu Saini";
+        const typedTextSpan = document.getElementById("typed-text");
+        let charIndex = 0;
+        let typingDelay = 150;
+
+        function type() {
+          if (charIndex < text.length) {
+            typedTextSpan.textContent += text.charAt(charIndex);
+            charIndex++;
+            setTimeout(type, typingDelay);
+          }
+        }
+        setTimeout(type, 500);
+      });
+
+      // Mobile menu functionality
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      // Close mobile menu when a link is clicked
+      document.querySelectorAll('#mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+        });
+      });
+
+      // Intersection Observer for fade-in animations on sections
+      const observerOptions = {
+        threshold: 0.1
+      };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove('animate-fade-in-down-scroll');
+            entry.target.classList.add('animate-fade-in-up');
+            entry.target.style.opacity = '1';
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('section').forEach(section => {
+        section.style.opacity = '0';
+        observer.observe(section);
+      });
+      
+      // AI Chatbot Logic
+      let chatHistoryData = [];
+      const chatbotPromptData = "You are a professional AI assistant for a portfolio website. Your name is 'AI Assistant'. Your purpose is to answer questions about the portfolio owner. The portfolio owner's name is 'Ritu Saini'. They are an AI & Data Science Engineer, Machine Learning Specialist, and Full Stack Developer. Their skills include Python, R, C++, JavaScript, SQL, DSA, MLDL, NLP, LLM, Prompt & Feature Engineering, Django, Flask, Scikit-Learn, Pandas, NumPy, Matplotlib, OpenCV, Bootstrap, MySQL, PostgreSQL, Google Cloud Platform, AWS, Power BI, Git, GitHub, GitBash, Excel, GPT, DAX Queries, and Django Admin. Their experience includes a role as a Full Stack Python Django Web Developer Intern at IBV Technologies from Mar 2025 to Jul 2025, Data Analytics Intern at DataPlay from Jul 2024 to Sep 2025, Data Science Trainee at Celebal Technologies from May 2024 to Jul 2024, and Python Django Full Stack Development Intern at Regex Software Services from Mar 2023 to Sep 2023. Their projects are 'Email Classifier System', 'Credit Card Customer & Transaction Analyzer', and 'Farmers & Employees Management System'. You should answer questions based only on this provided information. If you don't know the answer, politely say that you don't have that information. Keep responses concise and helpful. Do not mention the existence of an API key or an API call. Do not say that you are a language model.";
+
+      const chatForm = document.getElementById('chat-form');
+      const chatInput = document.getElementById('chat-input');
+      const chatHistory = document.getElementById('chat-history');
+      const chatbotBtn = document.getElementById('chatbot-btn');
+      const chatbotModal = document.getElementById('chatbot-modal');
+      const chatbotContent = document.getElementById('chatbot-content');
+      const closeChatbotBtn = document.getElementById('close-chatbot-btn');
+
+      chatbotBtn.addEventListener('click', () => {
+        chatbotModal.classList.remove('hidden');
+        setTimeout(() => {
+          chatbotContent.classList.remove('scale-95', 'opacity-0');
+          chatbotContent.classList.add('scale-100', 'opacity-100');
+        }, 100);
+      });
+
+      closeChatbotBtn.addEventListener('click', () => {
+        chatbotContent.classList.remove('scale-100', 'opacity-100');
+        chatbotContent.classList.add('scale-95', 'opacity-0');
+        setTimeout(() => {
+          chatbotModal.classList.add('hidden');
+        }, 300);
+      });
+      
+      chatForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const userMessage = chatInput.value.trim();
+        if (userMessage === '') return;
+
+        // Display user message
+        const userMessageDiv = document.createElement('div');
+        userMessageDiv.className = 'flex justify-end';
+        userMessageDiv.innerHTML = `<div class="bg-[#A259FF] text-white p-3 rounded-lg chat-message-user max-w-[80%]">${userMessage}</div>`;
+        chatHistory.appendChild(userMessageDiv);
+        chatHistory.scrollTop = chatHistory.scrollHeight;
+
+        chatInput.value = '';
+        const loadingIndicator = document.getElementById('loading-indicator');
+        loadingIndicator.classList.remove('hidden');
+        
+        chatHistoryData.push({ role: "user", parts: [{ text: userMessage }] });
+
+        let responseText = "I'm sorry, I'm unable to process that request at the moment. Please try again later.";
+        
+        // API Call with exponential backoff
+        for (let i = 0; i < 3; i++) {
+          try {
+            const payload = {
+              contents: [{ role: "user", parts: [{ text: chatbotPromptData + "\n\nUser: " + userMessage }] }],
+            };
+            const apiKey = "";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+            const response = await fetch(apiUrl, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            });
+
+            const result = await response.json();
+            if (result.candidates && result.candidates.length > 0 &&
+                result.candidates[0].content && result.candidates[0].content.parts &&
+                result.candidates[0].content.parts.length > 0) {
+              responseText = result.candidates[0].content.parts[0].text;
+              break; // Exit loop on success
+            } else {
+              throw new Error("Invalid response format from API.");
+            }
+          } catch (error) {
+            console.error("API call failed:", error);
+            await new Promise(res => setTimeout(res, Math.pow(2, i) * 1000)); // Exponential backoff
+          }
+        }
+        
+        loadingIndicator.classList.add('hidden');
+        
+        // Display bot message
+        const botMessageDiv = document.createElement('div');
+        botMessageDiv.className = 'flex items-start';
+        botMessageDiv.innerHTML = `<div class="bg-gray-700 text-gray-100 p-3 rounded-lg chat-message-bot max-w-[80%]">${responseText}</div>`;
+        chatHistory.appendChild(botMessageDiv);
+        chatHistory.scrollTop = chatHistory.scrollHeight;
+      });
+
+      // New AI Features
+      // 1. Project Description Generator
+      document.querySelectorAll('.generate-description-btn').forEach(button => {
+        button.addEventListener('click', async (e) => {
+          const projectCard = e.target.closest('.project-card');
+          const title = projectCard.querySelector('h3').textContent;
+          const descriptionElement = projectCard.querySelector('.project-description');
+          const originalDescription = descriptionElement.textContent;
+          const loadingText = 'Generating...';
+
+          // Set loading state
+          const originalButtonText = button.innerHTML;
+          button.innerHTML = `<i class="fas fa-spinner fa-spin mr-2"></i> ${loadingText}`;
+          button.disabled = true;
+
+          let generatedDescription = "Failed to generate a new description. Please try again later.";
+
+          const prompt = `Rewrite the following project description for a professional portfolio, making it more detailed and engaging. The project title is "${title}". The original description is: "${originalDescription}". Do not start the response with "Project Title:" or a similar phrase. Just provide the rewritten description.`;
+
+          // API Call with exponential backoff
+          for (let i = 0; i < 3; i++) {
+            try {
+              const payload = {
+                contents: [{ role: "user", parts: [{ text: prompt }] }],
+              };
+              const apiKey = "";
+              const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+              const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+              });
+
+              const result = await response.json();
+              if (result.candidates && result.candidates.length > 0 &&
+                  result.candidates[0].content && result.candidates[0].content.parts &&
+                  result.candidates[0].content.parts.length > 0) {
+                generatedDescription = result.candidates[0].content.parts[0].text;
+                break;
+              } else {
+                throw new Error("Invalid response format from API.");
+              }
+            } catch (error) {
+              console.error("API call failed:", error);
+              await new Promise(res => setTimeout(res, Math.pow(2, i) * 1000));
+            }
+          }
+
+          // Restore button and update text
+          button.innerHTML = originalButtonText;
+          button.disabled = false;
+          descriptionElement.textContent = generatedDescription;
+        });
+      });
+
+      // 2. Skill Summary Generator
+      const summarizeSkillsBtn = document.getElementById('summarize-skills-btn');
+      const skillsSummaryText = document.getElementById('skills-summary-text');
+      const skillsLoading = document.getElementById('skills-loading');
+
+      summarizeSkillsBtn.addEventListener('click', async () => {
+        const skills = Array.from(document.querySelectorAll('#skills .font-semibold')).map(el => el.textContent);
+        
+        // Set loading state
+        summarizeSkillsBtn.disabled = true;
+        skillsLoading.classList.remove('hidden');
+        skillsSummaryText.classList.add('hidden');
+
+        let generatedSummary = "Failed to generate a summary. Please try again later.";
+        const prompt = `Write a compelling summary of a professional's skills based on the following list: ${skills.join(', ')}. The summary should highlight how these skills complement each other and can be applied to real-world projects. Write it from the first-person perspective, as if it were on a portfolio's "About Me" section. Keep it concise and professional.`;
+
+        // API Call with exponential backoff
+        for (let i = 0; i < 3; i++) {
+          try {
+            const payload = {
+              contents: [{ role: "user", parts: [{ text: prompt }] }],
+            };
+            const apiKey = "AIzaSyCzTUsv_l6qyt2ypYUYH4asf50I_seztlQ";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+            const response = await fetch(apiUrl, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            });
+
+            const result = await response.json();
+            if (result.candidates && result.candidates.length > 0 &&
+                result.candidates[0].content && result.candidates[0].content.parts &&
+                result.candidates[0].content.parts.length > 0) {
+              generatedSummary = result.candidates[0].content.parts[0].text;
+              break;
+            } else {
+              throw new Error("Invalid response format from API.");
+            }
+          } catch (error) {
+              console.error("API call failed:", error);
+              await new Promise(res => setTimeout(res, Math.pow(2, i) * 1000));
+          }
+        }
+
+        // Restore button and update text
+        summarizeSkillsBtn.disabled = false;
+        skillsLoading.classList.add('hidden');
+        skillsSummaryText.textContent = generatedSummary;
+        skillsSummaryText.classList.remove('hidden');
+      });
+    </script>
+  </body>
+</html>
